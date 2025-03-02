@@ -11,13 +11,6 @@ if(isset($_GET['kl']) && !empty($_GET['c'])) {
 }
 
 if(isset($_POST['password']) && strlen($_POST['password']) > 0){
-
-  if (!empty($_SERVER['HTTP_CLIENT_IP']))
-    $ipaddress = $_SERVER['HTTP_CLIENT_IP'];
-  elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR']))
-    $ipaddress = $_SERVER['HTTP_X_FORWARDED_FOR'];
-  else
-    $ipaddress = $_SERVER['REMOTE_ADDR'];
   
   $pass = $_POST["password"];
 	$email=$_SESSION["Email"];
